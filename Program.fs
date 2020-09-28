@@ -2,23 +2,22 @@ open Farmer
 open Farmer.Builders
 open System
 
-// Create ARM resources here e.g. webApp { } or storageAccount { } etc.
-// See https://compositionalit.github.io/farmer/api-overview/resources/ for more details.
-
-// Add resources to the ARM deployment using the add_resource keyword.
-// See https://compositionalit.github.io/farmer/api-overview/resources/arm/ for more details.
 let deployment = arm {
+    // Our location we set previously
     location Location.WestEurope
 }
 
 module Config =
+    // getEnv is only needed inside this module
     let private getEnv name =
         match Environment.GetEnvironmentVariable name with
         | null -> None
         | name -> Some name
+    // Read rg from env or set default value
     let resourceGroupName =
         getEnv "RESOURCE_GROUP_NAME" |> Option.defaultValue "farmer-ci-deploy"
 
+// Execute andf deploy
 let response =
     deployment
     |> Deploy.tryExecute Config.resourceGroupName Deploy.NoParameters
