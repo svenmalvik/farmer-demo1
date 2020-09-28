@@ -11,4 +11,4 @@ steps:
     azureSubscription: 'Pay-As-You-Go'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'dotnet run'
+    inlineScript: 'az account show'
