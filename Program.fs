@@ -26,4 +26,4 @@ let response =
     | Ok outputs -> sprintf "Success! Outputs: %A" outputs
     | Error error -> sprintf "Rejected! %A" error
 
-printfn "Deployment finished with result: %s" response
+printfn "Deployment finished with result: %s" response 
