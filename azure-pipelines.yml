@@ -8,7 +8,7 @@ steps:
 - task: AzureCLI@2
   displayName: 'Deploy ARM template'
   inputs:
-    azureSubscription: 'Pay-As-You-Go'
+    azureSubscription: 'farmer-rg-sc'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
     inlineScript: 'az account show'
