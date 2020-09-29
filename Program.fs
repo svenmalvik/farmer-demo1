@@ -2,9 +2,15 @@ open Farmer
 open Farmer.Builders
 open System
 
+let demoMaps = maps {
+    name "demo_maps"
+    sku Maps.S0
+}
+
 let deployment = arm {
     // Our location we set previously
     location Location.WestEurope
+    add_resource demoMaps
 }
 
 module Config =

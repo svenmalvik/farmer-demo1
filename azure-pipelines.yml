@@ -11,4 +11,4 @@ steps:
     azureSubscription: 'farmer-rg-sc'
     scriptType: 'bash'
     scriptLocation: 'inlineScript'
-    inlineScript: 'az account show'
+    inlineScript: 'dotnet run'
